@@ -1,0 +1,46 @@
+<div class="container">
+
+
+    <div class="card mt-5" *ngIf="identity.vote !='false'">
+        <div class="card-body">
+            <h3 class="card-title text-center">Ya has realizado tu voto</h3>
+            <div class="form-group mt-2">
+                <p class="text-center">
+                    Descarga tu certificado</p>
+                <p class="text-center">
+                    <a [routerLink]="['/certificate']" routerLinkActive="router-link-active">aqui</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+    <div class="" *ngIf="identity.vote =='false'">
+
+        <div class="" *ngFor="let list of lists">
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm" *ngFor="let list of lists">
+                <div class="card mt-5" style="width: 18rem;">
+                    <a [routerLink]="['/candidates/', list.id]"> <img src="{{url + 'image/' + list.image}}" style="width: 150px; height: 150px; display: block; margin: auto; border-radius: 150px;" alt=""></a>
+                    <div class="card-body ">
+                        <b> 
+                        <h4><p class="card-text d-flex justify-content-center">{{list.listdescription}}</p> </h4></b>
+                        <a [routerLink]="['/edit-list',list.id]" routerLinkActive="router-link-active" class="btn btn-warning col-md-12 mt-2" *ngIf="identity.role=='ROLE_ADMIN'">Modificar</a>
+                        <a (click)="ModalDelete(list.id, list.listdescription)" class="btn btn-danger col-md-12 mt-2" *ngIf="identity.role=='ROLE_ADMIN'">Eliminar</a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

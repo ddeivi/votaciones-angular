@@ -1,0 +1,63 @@
+<div class="container">
+
+
+    <div class="card mt-5" *ngIf="identity.vote =='false'">
+        <div class="card-body">
+            <h3 class="card-title text-center">No has realizado tu voto</h3>
+            <div class="form-group mt-2">
+                <p class="text-center">
+                    Realiza tu voto para poder obtener tu certificado</p>
+                <p class="text-center">
+                    <a [routerLink]="['/inicio']" routerLinkActive="router-link-active">Realiza tu voto aqui</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="card col-6 mt-5" *ngIf="identity.vote !='false'">
+
+        <img src="assets/img/uleam.png" alt="" style="width: 150px; margin: auto; display: block; margin-top: 16px;" id="image">
+        <div class="clearfix"></div>
+
+        <div class="card-body">
+
+
+            <table class="table float-left" id="table">
+                <thead>
+
+                </thead>
+                <tbody>
+                    <tr>
+                        <div class="card-body">
+                            <h3 class="card-title text-center">Certificación</h3>
+                            <div class="form-group mt-4">
+                                <p class="text-center">
+                                    Cédula: <strong>{{identity.card}}</strong>
+                                </p>
+                                <p class="text-center">
+                                    Nombres: <strong>{{identity.name +' '+ identity.lastname}}</strong>
+                                </p>
+                                <p class="text-center">
+                                    Fecha emisión: <strong>{{fecha}}</strong>
+                                </p>
+
+                                <p class="text-center">
+                                    Puede descargar su certificado digital
+                                </p>
+                            </div>
+                        </div>
+                    </tr>
+
+                </tbody>
+            </table>
+            <div class="form-group">
+                <a class="float-right pointer"> <img src="assets/img/descarga.svg" alt="" (click)="Certificate()">
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

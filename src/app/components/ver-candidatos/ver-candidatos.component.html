@@ -1,0 +1,32 @@
+<br>
+
+<br>
+<div class="container">
+
+    <div class="col-md-12">
+        <h2 class="d-flex justify-content-center">Integrantes</h2>
+
+        <div class="row">
+            <div class="col-sm" *ngFor="let can of canditatesList">
+                <div class="card mt-5" style="width: 18rem;">
+                    <img class="card-img-top" src="{{url+'image/'+ can.image}}" alt="Card image cap" style="width: 200px; height: 250px; display: block; margin: auto;">
+                    <div class="card-body ">
+                        <h5 class="card-title d-flex justify-content-center">{{can.name +" "+can.lastname}}</h5>
+                        <b><p class="card-text d-flex justify-content-center">{{can.type.typeCandidate}}</p></b>
+
+                        <p class="card-text d-flex justify-content-center">{{can.list.listdescription}}</p>
+                        <img src="{{url+'image/'+ can.list.image}}" alt="" style="width: 30%; height: 30%; display: block; margin: auto; border-radius: 150px;">
+                        <a [routerLink]="['/edit-candidate',can.id]" routerLinkActive="router-link-active" class="btn btn-warning col-md-12 mt-2" *ngIf="identity.role=='ROLE_ADMIN'">Modificar</a>
+                        <a (click)="ModalDelete(can.id, can.name, can.lastname)" class="btn btn-danger col-md-12 mt-2" *ngIf="identity.role=='ROLE_ADMIN'">Eliminar</a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <a (click)="votar()" class="btn btn-primary col-md-5 mt-5" style="display: block; margin: auto;" *ngIf="identity.role!='ROLE_ADMIN'">Votar</a>
+
+
+    </div>
+
+</div>

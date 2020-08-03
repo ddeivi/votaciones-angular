@@ -1,0 +1,37 @@
+<div class="container">
+
+
+    <br><br>
+    <h2 class="d-flex justify-content-center">Agregar Lista</h2>
+
+
+    <div class="container">
+        <div style="width: 50%; margin: auto;">
+            <form #listsForm="ngForm" (ngSubmit)="onSubmit(listsForm)">
+                <div class="form-group">
+                    <img src="" alt="" style="width: 300px; height: 300px;border-radius: 90%; display: block; margin: auto;">
+                </div>
+                <!--<div class="form-group" *ngIf="!list.image">
+                    <img src="assets/img/candidato.jpg" alt="" style="width: 300px; height: 300px;border-radius: 90%; display: block; margin: auto;">
+                </div>-->
+                <div class="form-group">
+                    <label>Nombre de la lista</label>
+                    <input name="listdescription" #listdescription="ngModel" [(ngModel)]="list.listdescription" type="text" class="form-control" required>
+                    <small *ngIf="!listdescription.valid && listdescription.touched" class="invalid-feedback d-block">  valido</small>
+
+                </div>
+
+                <div class="form-group mt-2">
+                    <angular-file-uploader [config]="afuConfig" (ApiResponse)="imageUpload($event)"></angular-file-uploader>
+
+                </div>
+
+                <button type="submit" class="btn btn-primary col-12">Registrar</button>
+            </form>
+        </div>
+
+
+
+    </div>
+
+</div>

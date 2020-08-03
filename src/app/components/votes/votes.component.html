@@ -1,0 +1,31 @@
+<div class="container">
+
+
+
+    <ul class="list-group" *ngFor="let list of lists">
+        <br><br><br>
+        <li class="list-group-item">
+            <a [routerLink]="['/candidates/', list.id]"> <img src="{{url + 'image/' + list.image}}" style="width: 150px; height: 150px; display: block; margin: auto; border-radius: 150px;" alt=""></a>
+            <b> <h1><p class="card-text d-flex justify-content-center mt-3">{{list.listdescription}}</p> </h1></b>
+            <b> <h4><p class="card-text d-flex justify-content-center">{{'Votos actuales: '+list.numVote}}</p> </h4></b>
+        </li>
+    </ul>
+
+
+
+    <!--<div class="row">
+        <div class="col-sm" *ngFor="let list of lists">
+            <div class="card mt-5" style="width: 18rem;">
+                <a [routerLink]="['/candidates/', list.id]"> <img src="{{url + 'image/' + list.image}}" style="width: 150px; height: 150px; display: block; margin: auto; border-radius: 150px;" alt=""></a>
+                <div class="card-body ">
+                    <b> <h4><p class="card-text d-flex justify-content-center">{{list.listdescription}}</p> </h4></b>
+                    <b> <h4><p class="card-text d-flex justify-content-center">{{'Votos actuales: '+list.numVote}}</p> </h4></b>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>-->
+
+</div>
